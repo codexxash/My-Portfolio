@@ -29,7 +29,7 @@ function Projects() {
           </p>
         </div>
         <div className="project3">
-          <h2>Mind Game</h2>
+          <h2>Memory Card Game</h2>
           <p> Built a memory card game using HTML, CSS, and JavaScript, focusing on DOM manipulation, event handling, and game state management.  JavaScript is used to shuffle cards, track matches, and handle user interactions, showcasing proficiency in dynamic web development.</p>
           <span>HTML</span>
           <span> CSS</span>
