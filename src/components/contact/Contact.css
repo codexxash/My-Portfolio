@@ -1,0 +1,35 @@
+.contact{
+    text-align: center;
+}
+
+h2{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    /* color: #d4d4f7; */
+
+}
+.contact span{
+    padding: .7rem 1.5rem .7rem 1.5rem;
+    font-size: 1rem;
+    color: #91A1D9;
+    border: 2px solid ;
+    &:hover{
+        background: #91A1D9;
+    }
+}
+.contact span a{
+    text-decoration: none;
+    color: #91A1D9;
+}
+
+.contact span:hover a{
+    color: black;
+}
+
+p{
+    padding: 4rem;
+    font-weight: 700;
+    /* color: #90A1D8; */
+    font-size: .9rem;
+}

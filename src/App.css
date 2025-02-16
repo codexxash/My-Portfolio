@@ -1,0 +1,43 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body{
+background: #23283F;
+font-family: "Poppins", serif;
+scroll-behavior: smooth;
+color: #CECCF7;
+
+}
+
+.light-mode{
+background: white;
+color: #454544;
+}
+.light-mode h1{
+color: #454544;
+    
+}
+.light-mode h2{
+    color: #454544;
+        
+    }
+    .light-mode  a{
+        color: #454544 !important;
+    }
+    .light-mode li{
+        color: #454544 !important;
+    }
+    .light-mode button{
+        color: black;
+    }
+
+
+.dark-mode{
+    background: #23283F;
+    
+}
+
+

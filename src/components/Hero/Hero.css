@@ -1,0 +1,85 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10rem;
+}
+
+.hero-heading h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    /* color: #CECDF6; */
+
+}
+
+
+.myself {
+    color: #91A1D9;
+}
+.light-myself{
+    color: #2978B4;
+
+}
+
+.hero-heading h2 {
+    padding-top: 1rem;
+    text-align: center;
+    /* color: #CECDF6; */
+    font-size: 2rem;
+}
+
+
+
+.connects {
+    display: inline-block;
+    padding-top: 3rem;
+    padding-left: 1rem;
+
+
+}
+
+.connects span {
+    color: #9193d9;
+    border: 2px solid;
+    padding: .5rem;
+    transition: transform .3s ease-in-out;
+    &:hover {
+        background: #90A0D9;
+        &:hover a{
+            color: black;
+
+        }
+    }
+}
+.text-color{
+    color: black;
+}
+
+.connects a {
+    color: #CECDF6;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: .8rem;
+}
+
+
+@media (max-width: 900px) {
+    .hero-heading h1{
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 600px){
+
+    .hero{
+     align-items: flex-start;
+     padding-left: 1rem;
+    }
+.hero-heading h1{
+font-size: 2.5rem;
+}
+.hero-heading h2{
+    font-size: 1.5rem;
+    text-align: start;
+}
+}
