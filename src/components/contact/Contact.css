@@ -1,35 +1,63 @@
-.contact{
+.contact {
+    padding-top: 8rem;
     text-align: center;
 }
 
-h2{
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 1rem;
+}
+
+input {
+    padding: .3rem;
+    outline: none;
+}
+
+textarea {
+    outline: none;
+    padding: .1rem 5rem 2rem .5rem;
+
+}
+
+label {
+    font-size: 1.2rem;
+}
+
+.contact .btn {
+    padding: .5rem 1.3rem;
+    margin-top: .5rem;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    font-weight: 500;
+    background: none;
+    border: 2px solid #9193d9;
+    cursor: pointer;
+    border-radius: 2px;
+
+    &:hover {
+        background: #90A0D9;
+    }
+}
+
+.contact button:active {
+    transform: scale(1.1);
+}
+
+h2 {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    /* color: #d4d4f7; */
-
-}
-.contact span{
-    padding: .7rem 1.5rem .7rem 1.5rem;
-    font-size: 1rem;
-    color: #91A1D9;
-    border: 2px solid ;
-    &:hover{
-        background: #91A1D9;
-    }
-}
-.contact span a{
-    text-decoration: none;
-    color: #91A1D9;
+    text-transform: uppercase;
 }
 
-.contact span:hover a{
-    color: black;
-}
 
-p{
-    padding: 4rem;
+
+p {
+    padding: 1rem;
     font-weight: 700;
-    /* color: #90A1D8; */
+
     font-size: .9rem;
 }
