@@ -14,11 +14,22 @@
 input {
     padding: .3rem;
     outline: none;
+    border-radius: 5px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid grey;
+    width: 20%;
 }
 
 textarea {
     outline: none;
-    padding: .1rem 5rem 2rem .5rem;
+    padding: .3rem;
+    border-radius: 5px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid grey;
+    width: 20%;
+    padding-bottom: 0rem;
 
 }
 
@@ -60,4 +71,11 @@ p {
     font-weight: 700;
 
     font-size: .9rem;
+}
+.connects a {
+    color: #CECDF6;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: .8rem;
+    
 }
