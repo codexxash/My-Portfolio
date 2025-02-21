@@ -74,9 +74,10 @@ button{
         display: inline-block;
         padding-top: 2rem;
         padding-right: 1rem;
-        padding-bottom: 1rem;
+        padding-bottom: .3rem;
         text-align: end;
         position: fixed;
+        top: 0;
         width: 100%;
 
         background: #0000008f !important;
@@ -112,6 +113,7 @@ button{
         gap: 2rem;
         position: relative;
         padding-left: 2rem;
+        background: none;
 
 
 
