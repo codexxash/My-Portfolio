@@ -1,89 +1,137 @@
-import React, { useEffect, useState } from 'react'
-import './Navbar.css'
-import { FaBars, FaTimes } from 'react-icons/fa';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Skills from '../skills/Skills';
-import Projects from '../projects/Projects';
-import Contact from '../contact/Contact';
-import Hero from './Hero';
+import { useState, useEffect } from "react";
+import {
+FaBars,
+FaTimes,
+FaSun,
+FaMoon,
+} from "react-icons/fa";
 
+export default function Navbar() {
+const [menuOpen, setMenuOpen] = useState(false);
 
-function Navbar() {
-  const [theme, setTheme] = useState("dark-mode");
-  const [myself, setmyself] = useState("myself")
-  const [showMenu, setShowMenu] = useState(false)
-  const [activeComponent, setActiveComponent] = useState('home')
-  useEffect(() => {
-    document.querySelector("body").className = theme
-    document.querySelector("span").className = myself
-  }, [theme, myself]);
+const [darkMode, setDarkMode] = useState(() => {
+return localStorage.getItem("theme") !== "light";
+});
 
-
-  const handleButtonToggle = () => {
-    setShowMenu(!showMenu)
-  }
-
-  const handleNavClick = (componentName) =>{
-    setActiveComponent(componentName);
-  }
-
-  return (
-    <>
-      <div className={showMenu ? "menu-mobile" : "menu-web"}>
-
-
-        <ul className={'nav-links'}>
-          <li onClick={() => {
-            setShowMenu(false)
-handleNavClick('home')
-            
-          }}>Home</li>
-          <li onClick={() => {
-            setShowMenu(false)
-handleNavClick('skills-container')
-
-          }}>Skills</li>
-          <li onClick={() => {
-            setShowMenu(false)
-handleNavClick('projects')
-            
-
-
-          }}>Projects</li>
-          <li onClick={() => {
-            setShowMenu(false)
-handleNavClick('contact')
-            
-
-
-          }}>Contact</li>
-          <li className='icon' onClick={change => {
-            if (theme === "dark-mode") {
-              setTheme("light-mode")
-            } else {
-              setTheme("dark-mode")
-            }
-            if (myself === "myself") {
-              setmyself("light-myself")
-            } else {
-              setmyself("myself")
-            }
-            setShowMenu(false)
-
-          }}>{theme == 'dark-mode' ? <i class="fa-solid fa-sun"></i> : <i class="fa-solid fa-moon"></i>}</li>
-        </ul>
-      </div>
-      {activeComponent === 'skills-container' && <Skills/>}
-      {activeComponent === 'projects' && <Projects/>}
-      {activeComponent === 'contact' && <Contact/>}
-      <div className="menu-icon">
-        <button className='menu-toggle' onClick={handleButtonToggle}>
-          <FaBars />
-        </button>
-
-      </div>
-    </>
-  )
+useEffect(() => {
+if (darkMode) {
+document.documentElement.classList.add("dark");
+localStorage.setItem("theme", "dark");
+} else {
+document.documentElement.classList.remove("dark");
+localStorage.setItem("theme", "light");
 }
+}, [darkMode]);
 
-export default Navbar
+const links = [
+{ name: "Home", href: "#home" },
+{ name: "Projects", href: "#projects" },
+{ name: "Skills", href: "#skills" },
+{ name: "Contact", href: "#contact" },
+];
+
+return (
+<nav
+className={`sticky top-0 z-[50] backdrop-blur-sm ${
+        darkMode
+          ? "bg-black/30"
+          : "bg-gray-200/80"
+      }`}
+> <div className="max-w-7xl mx-auto px-8">
+{/* Desktop Menu */}
+<ul
+className={`hidden md:flex justify-end items-center gap-20 py-8 font-medium tracking-wide ${
+            darkMode
+              ? "text-[#BCBCDD]"
+              : "text-[#454544]"
+          }`}
+>
+{links.map((link) => ( <li key={link.name}>
+<a
+href={link.href}
+className={`transition-colors duration-300 ${
+                  darkMode
+                    ? "hover:text-[#91A1D9]"
+                    : "hover:text-[#2978B4]"
+                }`}
+>
+{link.name} </a> </li>
+))}
+
+
+      <li>
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          className={`text-xl transition ${
+            darkMode
+              ? "hover:text-[#91A1D9]"
+              : "hover:text-[#2978B4]"
+          }`}
+        >
+          {darkMode ? <FaSun /> : <FaMoon />}
+        </button>
+      </li>
+    </ul>
+
+    {/* Mobile Controls */}
+    <div className="md:hidden flex justify-end items-center gap-5 py-6 relative z-[60]">
+      <button
+        onClick={() => setDarkMode(!darkMode)}
+        className={`text-xl ${
+          darkMode
+            ? "text-white"
+            : "text-black"
+        }`}
+      >
+        {darkMode ? <FaSun /> : <FaMoon />}
+      </button>
+
+      <button
+        onClick={() => setMenuOpen(!menuOpen)}
+        className={`text-2xl ${
+          darkMode
+            ? "text-white"
+            : "text-black"
+        }`}
+      >
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </button>
+    </div>
+  </div>
+
+  {/* Mobile Menu */}
+  {menuOpen && (
+    <div
+      className={`md:hidden fixed top-0 left-0 w-full h-screen pt-24 z-40 ${
+        darkMode
+          ? "bg-[#96A8EC]"
+          : "bg-gray-100"
+      }`}
+    >
+      <ul
+        className={`flex flex-col items-center gap-8 text-xl font-medium ${
+          darkMode
+            ? "text-white"
+            : "text-black"
+        }`}
+      >
+        {links.map((link) => (
+          <li key={link.name}>
+            <a
+              href={link.href}
+              onClick={() =>
+                setMenuOpen(false)
+              }
+            >
+              {link.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+</nav>
+
+
+);
+}

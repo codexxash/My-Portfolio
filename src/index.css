@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #23283f;
+  color: #cecdf6;
+  font-family: "Poppins", sans-serif;
+}
